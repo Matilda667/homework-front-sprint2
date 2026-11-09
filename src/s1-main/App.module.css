@@ -1,11 +1,18 @@
 .App {
-    --header_height: 60px;
+    --header_height: 60px; /* высота хедера */
+    padding-top: var(--header_height); /* чтобы контент не перекрывался хедером */
+    font-family: Arial, sans-serif;
 }
 
 .hw {
-
+    padding: 20px;
+    background-color: #f9f9f9;
+    min-height: calc(100vh - var(--header_height)); /* контент под хедером */
 }
 
 .hwTitle {
-
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
 }
