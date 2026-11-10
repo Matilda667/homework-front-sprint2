@@ -1,15 +1,53 @@
-.radio {
-}
-
-.radio::before {
-}
-
-
-.radio:checked::before {
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Расстояние между кнопками */
 }
 
 .label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+    color: #333;
 }
 
-.options {
+/* Скрываем стандартный инпут */
+.radio {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Стилизуем span, который идет сразу после скрытого инпута */
+.span {
+    position: relative;
+    padding-left: 28px; /* Оставляем место для кружочка слева от текста */
+    display: inline-block;
+    line-height: 1.5;
+    user-select: none;
+}
+
+/* Рисуем сам пустой кружочек */
+.span::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border: 1px solid #999;
+    border-radius: 50%;
+    background-color: #fff;
+    transition: all 0.2s;
+}
+
+/* Когда инпут выбран (checked), меняем следующий за ним span */
+.radio:checked + .span::before {
+    border-color: #007bff;
+    background-color: #007bff;
+    box-shadow: inset 0 0 0 3px #fff; /* Делает внутри белую точку */
 }
